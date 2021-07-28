@@ -3,10 +3,18 @@ package com.systemmz.course.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class User implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
+	@Id // define o campo "id" como chave primaria
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // declara que a chave primária é auto-incrmentada
 	private long id;
 	private String name;
 	private String email;
@@ -17,17 +25,6 @@ public class User implements Serializable{
 		
 	}
 
-
-	public String getEmail() {
-		return email;
-	}
-
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-
 	public User(long id, String name, String email, String fone, String password) {
 		super();
 		this.id = id;
@@ -36,6 +33,8 @@ public class User implements Serializable{
 		this.fone = fone;
 		this.password = password;
 	}
+
+	
 
 
 	public long getId() {
@@ -52,6 +51,14 @@ public class User implements Serializable{
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getFone() {
