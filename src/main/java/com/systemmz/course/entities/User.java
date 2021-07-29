@@ -15,7 +15,7 @@ public class User implements Serializable{
 	
 	@Id // define o campo "id" como chave primaria
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // declara que a chave primária é auto-incrmentada
-	private long id;
+	private Long id;
 	private String name;
 	private String email;
 	private String fone;
@@ -25,7 +25,7 @@ public class User implements Serializable{
 		
 	}
 
-	public User(long id, String name, String email, String fone, String password) {
+	public User(Long id, String name, String email, String fone, String password) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -37,11 +37,11 @@ public class User implements Serializable{
 	
 
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
