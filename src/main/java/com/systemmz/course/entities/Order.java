@@ -14,6 +14,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.ManyToAny;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "tb_order") // foi preciso fazer isso pois o nome da tabela "Order" estava entrando em conflito com uma chamada do SQL para ordenar um select o "ORDER"
 public class Order implements Serializable{
@@ -23,6 +25,8 @@ public class Order implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
 	private Instant instant;
 	
 	@ManyToOne  // instrui o JPA a transformar o User client em uma "chave estrangeira" no banco
